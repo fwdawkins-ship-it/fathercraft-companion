@@ -4,11 +4,12 @@
   "description": "An unofficial companion for guys reading [Fathercraft](https://fathercraft.com/) and working through Father's Ed. Checklists, a weekly dad-habits scorecard, and field notes — in one free, fast, offline-capable page.",
   "main": "test.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js",
+    "serve": "python -m http.server 8765"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["fatherhood", "dads", "checklists", "habits", "fathercraft"],
+  "author": "Forrest Dawkins",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "jsdom": "^30.1.2"
