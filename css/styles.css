@@ -1,0 +1,190 @@
+/* The Dad Field Manual — warm paper, strong type, zero frameworks */
+
+:root {
+  --paper: #faf6ef;
+  --ink: #26221b;
+  --ink-soft: #5c554a;
+  --line: #e3dccb;
+  --accent: #b0552a;
+  --accent-soft: #f3e2d6;
+  --done: #3e6b3e;
+  --done-soft: #e4eede;
+  --card: #fffdf8;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+/* Header */
+.site-header {
+  background: var(--card);
+  border-bottom: 3px double var(--line);
+  padding: 28px 0 22px;
+}
+.masthead h1 {
+  margin: 0 0 6px;
+  font-size: clamp(1.9rem, 5vw, 2.8rem);
+  letter-spacing: -0.02em;
+}
+.masthead .accent { color: var(--accent); }
+.tagline { margin: 0 0 8px; font-size: 1.05rem; color: var(--ink-soft); }
+.disclaimer { margin: 0; font-size: 0.85rem; color: var(--ink-soft); font-family: Verdana, sans-serif; }
+.disclaimer a { color: var(--accent); }
+
+.scorecard {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.score-big { display: flex; justify-content: space-between; align-items: baseline; }
+.score-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); font-family: Verdana, sans-serif; }
+.score-big strong { font-size: 1.6rem; color: var(--done); }
+
+.bar { height: 10px; background: var(--accent-soft); border-radius: 6px; overflow: hidden; }
+.bar-fill { height: 100%; width: 0; background: var(--done); border-radius: 6px; transition: width 0.4s ease; }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+.tab {
+  font-family: Verdana, sans-serif;
+  font-size: 0.85rem;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+}
+.tab:hover { border-color: var(--accent); }
+.tab.is-active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* Sections */
+.panel { padding-top: 14px; padding-bottom: 30px; }
+
+.section-block {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 22px;
+}
+.section-block h2 {
+  margin: 0 0 4px;
+  font-size: 1.45rem;
+  letter-spacing: -0.01em;
+}
+.section-block .why {
+  margin: 0 0 14px;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  font-style: italic;
+}
+.section-head-row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.pct-inline { font-family: Verdana, sans-serif; font-size: 0.85rem; color: var(--done); }
+
+ul.checklist { list-style: none; margin: 0; padding: 0; }
+ul.checklist li { border-top: 1px dashed var(--line); }
+ul.checklist li:first-child { border-top: 0; }
+.check-item {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 10px;
+  padding: 10px 2px;
+  cursor: pointer;
+  align-items: start;
+}
+.check-item input[type="checkbox"] {
+  width: 22px; height: 22px;
+  accent-color: var(--done);
+  cursor: pointer;
+  margin-top: 2px;
+}
+.check-item .check-text { font-size: 1.02rem; }
+.check-item input:checked ~ .check-text { color: var(--ink-soft); text-decoration: line-through; text-decoration-color: var(--done); text-decoration-thickness: 2px; }
+li.is-done .check-text { text-decoration: line-through; text-decoration-color: var(--done); text-decoration-thickness: 2px; }
+
+/* Notes */
+.field-note {
+  width: 100%;
+  min-height: 110px;
+  padding: 12px;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  resize: vertical;
+}
+.field-note:focus { outline: 2px solid var(--accent); }
+.note-saved { font-size: 0.8rem; color: var(--ink-soft); font-family: Verdana, sans-serif; margin-top: 6px; }
+
+/* Habits */
+.habit-table-wrap { overflow-x: auto; }
+table.habit-table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+table.habit-table th, table.habit-table td { border: 1px solid var(--line); padding: 8px 6px; text-align: center; }
+table.habit-table th.day { font-family: Verdana, sans-serif; font-size: 0.75rem; text-transform: uppercase; color: var(--ink-soft); }
+table.habit-table th.habit { text-align: left; padding-left: 10px; }
+td.daycell { min-width: 44px; }
+td.daycell .daybox { width: 100%; aspect-ratio: 1; font-size: 1rem; accent-color: var(--done); cursor: pointer; }
+.week-row-totals td { font-family: Verdana, sans-serif; font-size: 0.8rem; }
+.week-toolbar { display: flex; justify-content: space-between; align-items: center; margin: 0 0 12px; gap: 10px; flex-wrap: wrap; }
+.week-label { font-family: Verdana, sans-serif; font-size: 0.85rem; color: var(--ink-soft); }
+.todaycol { background: var(--accent-soft); }
+
+/* Buttons */
+.btn {
+  font-family: Verdana, sans-serif;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn-small { font-size: 0.75rem; }
+
+/* Footer */
+.site-footer { border-top: 3px double var(--line); padding: 18px 0 34px; color: var(--ink-soft); }
+.site-footer p { margin: 0 0 10px; }
+.small { font-size: 0.8rem; }
+
+/* Print */
+@media print {
+  .tabs, .scorecard .btn, footer .btn { display: none !important; }
+  [hidden] { display: revert !important; }
+  body { background: white; }
+  .section-block { break-inside: avoid; border: none; padding: 10px 0; }
+  .site-header, .site-footer { border-color: #ccc; }
+}
+
+@media (max-width: 560px) {
+  .masthead h1 { font-size: 2rem; }
+  .section-block { padding: 16px; }
+}

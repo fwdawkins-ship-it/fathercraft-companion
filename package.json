@@ -1,0 +1,16 @@
+{
+  "name": "fathercraft-companion",
+  "version": "1.0.0",
+  "description": "An unofficial companion for guys reading [Fathercraft](https://fathercraft.com/) and working through Father's Ed. Checklists, a weekly dad-habits scorecard, and field notes — in one free, fast, offline-capable page.",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "jsdom": "^30.1.2"
+  }
+}
